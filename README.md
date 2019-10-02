@@ -6,6 +6,8 @@
 
 ## Description
 
+This is an app on which workers of the same company can post different news, from various departments in which their in.
+ 
 ### Technologies used
 
 * JAVA 
