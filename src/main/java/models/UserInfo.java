@@ -5,30 +5,25 @@ public class UserInfo {
     private String post;
     private String department;
     private String role;
+    private int deptInfId;
     private int id;
 
-    public UserInfo(String post, String role, String name, String department){
+    public UserInfo(String post, String role, String name, String department, int departId){
         this.role = role;
         this.post = post;
         this.name = name;
         this.department = department;
+        this.deptInfId = deptInfId;
     }
 
     public String getName() { return name; }
-
     public String getDepartment() { return department; }
-
-    public String getPost(){
-        return post;
-    }
-
-    public String getRole(){
-        return role;
-    }
-
-    public int getId() {
-        return id;
-    }
+    public String getRole(){ return role; }
+    public void setPost(String post) { this.post = post; }
+    public String getPost(){ return post; }
+    public int getDepartId() { return deptInfId; }
+    public void setDepartId(int departId) { this.deptInfId = departId; }
+    public int getId() { return id; }
 
     public void setName(String name) { this.name = name; }
 

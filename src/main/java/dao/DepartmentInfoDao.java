@@ -7,8 +7,7 @@ import java.util.List;
 
 public interface DepartmentInfoDao {
     void add(DepartmentInfo departmentInfo);
-    void addUsersToDepartment(DepartmentInfo departmentInfo, UserInfo userInfo);
     List<DepartmentInfo> getAll();
     List<UserInfo> getAllUsersInADepartment(int dptInfoId);
-
+    DepartmentInfo findById(int deptInfId);
 }
