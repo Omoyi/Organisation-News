@@ -16,3 +16,7 @@ This is an app on which workers of the same company can post different news, fro
 * Spark (Java framework)
 * Junit
 * Postgres SQL (Database)
+
+## contacts
+
+**urakhel7@gmail.com**
