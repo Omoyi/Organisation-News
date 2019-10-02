@@ -4,13 +4,13 @@ public class DepartmentInfo {
 
     private String departmentName;
     private String description;
-    private int numberOfEmployees;
+    private int nbrEmployees;
     private int id;
 
     public DepartmentInfo(String departmentName, String description, int numberOfEmployees, int id){
         this.departmentName = departmentName;
         this.description = description;
-        this.numberOfEmployees = numberOfEmployees;
+        this.nbrEmployees = nbrEmployees;
         this.id = id;
     }
 
@@ -24,13 +24,17 @@ public class DepartmentInfo {
 
     public void setDescription(String description) { this.description = description; }
 
-    public int getNumberOfEmployees() { return numberOfEmployees; }
+    public int getNumberOfEmployees() { return nbrEmployees; }
 
     public void setNumberOfEmployees(int numberOfEmployees) {
-        this.numberOfEmployees = numberOfEmployees;
+        this.nbrEmployees = nbrEmployees;
     }
 
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
+
+    public void getAll(DepartmentInfo departmentInfo) {
+
+    }
 }

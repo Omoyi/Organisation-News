@@ -1,6 +1,7 @@
 import dao.Sql2oDepartmentInfoDao;
 import dao.Sql2oNewsInfoDao;
 import dao.Sql2oUserInfoDao;
+import models.DepartmentInfo;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
@@ -29,6 +30,23 @@ public class App {
         get("/home", (request, response) ->{
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "index.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/depart/news", (request, response) ->{
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "departform.hbs");
+        },new HandlebarsTemplateEngine());
+
+        post("/depart", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int id = Integer.parseInt(request.queryParams("id"));
+            String departmentName = request.queryParams("departmentName");
+            String description = request.queryParams("description");
+            int nbrEmployees = Integer.parseInt(request.queryParams("nbrEmployees"));
+            DepartmentInfo departmentInfo = new DepartmentInfo(departmentName, description, nbrEmployees, id);
+            departmentInfo.getAll(departmentInfo);
+            model.put("departments", departmentInfo);
+            return new ModelAndView(model, "departform.hbs");
         },new HandlebarsTemplateEngine());
     }
 }
