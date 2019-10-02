@@ -7,12 +7,14 @@ public class DepartmentInfo {
     private int nbrEmployees;
     private int id;
 
-    public DepartmentInfo(String departmentName, String description, int numberOfEmployees, int id){
+    public DepartmentInfo(String departmentName, String description, int nbrEmployees){
         this.departmentName = departmentName;
         this.description = description;
         this.nbrEmployees = nbrEmployees;
-        this.id = id;
     }
+
+
+
 
     public String getDepartmentName() { return departmentName; }
 
@@ -24,9 +26,9 @@ public class DepartmentInfo {
 
     public void setDescription(String description) { this.description = description; }
 
-    public int getNumberOfEmployees() { return nbrEmployees; }
+    public int getNbrEmployees() { return nbrEmployees; }
 
-    public void setNumberOfEmployees(int numberOfEmployees) {
+    public void setNbrEmployees(int nbrEmployees) {
         this.nbrEmployees = nbrEmployees;
     }
 

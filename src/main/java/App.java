@@ -8,6 +8,7 @@ import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -38,16 +39,22 @@ public class App {
             return new ModelAndView(model, "departform.hbs");
         },new HandlebarsTemplateEngine());
 
-        post("/depart", (request, response) -> {
+        post("/departments", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int id = Integer.parseInt(request.queryParams("id"));
             String departmentName = request.queryParams("departmentName");
             String description = request.queryParams("description");
             int nbrEmployees = Integer.parseInt(request.queryParams("nbrEmployees"));
-            DepartmentInfo departmentInfo = new DepartmentInfo(departmentName, description, nbrEmployees, id);
-            DepartmentInfoDao.add(departmentInfo);
+            DepartmentInfo departmentInfo = new DepartmentInfo(departmentName, description, nbrEmployees);
+            departmentInfoDao.add(departmentInfo);
             model.put("departments", departmentInfo);
             return new ModelAndView(model, "alldepartment.hbs");
         },new HandlebarsTemplateEngine());
+
+        get("/departments", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("department",departmentInfoDao.getAll());
+            return new ModelAndView(model, "alldepartment.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }

@@ -6,7 +6,7 @@ import models.UserInfo;
 import java.util.List;
 
 public interface DepartmentInfoDao {
-    static void add(DepartmentInfo departmentInfo);
+    void add(DepartmentInfo departmentInfo);
     List<DepartmentInfo>getAll();
     List<UserInfo> getAllUsersInADepartment(int dptInfoId);
     DepartmentInfo findById(int deptInfId);

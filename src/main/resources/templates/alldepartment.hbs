@@ -1,39 +1,43 @@
 {{#partial "content"}}
-    <div class="well">
-        <h1>{{department.name}}</h1>
-        <p>USERS INFO</p>
-        <div class="row">
-            <div class="col-md-6">
-                <ul>
-                    {{#if users}}
-                        {{#each users}}
-                            <li>
-                                <p><a href="/users/{{id}}">{{userName}}</a></p>
-                            </li>
-                        {{/each}}
-                    {{else}}
-                        <p>No users<p>
-                    {{/if}}
-                </ul>
-            </div>
+    <h1>AVAILABLE DEPARTMENTS</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Employees</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each department}}
+            <tr class="table-dark">
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+                <td>{{nbrEmployees}}</td>
 
-            <div class="col-md-6">
-                All news in this department
-                <ul>
-                    {{#if news}}
-                        {{#each news}}
-                            <li>
-                                <p>{{news}}</p>
-                            </li>
-                        {{/each}}
-                    {{else}}
-                        <p>No news </p>
-                    {{/if}}
-                </ul>
-            </div>
-        </div>
-    </div>
 
+                <td><a href="/users/new"><button type="submit" class="btn btn-info">add users</button></a></td>
+                <td><a href="news/delete"><button type="submit" class="btn btn-info">delete</button></a></td>
+                <td><a href="/generalnews"><button type="submit" class="btn btn-info">Add news</button></a></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
 {{/partial}}
-
 {{> layout.hbs}}
+
+<style>
+h2{
+color:white;
+}
+th{
+<!--color:white;-->
+font-size:20px;
+font-family: 'Playfair Display', serif;
+}
+td{
+<!--color:white;-->
+font-size:20px;
+font-family: 'Playfair Display', serif;
+}
+</style>
