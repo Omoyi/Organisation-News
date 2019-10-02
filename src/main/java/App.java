@@ -1,3 +1,4 @@
+import dao.DepartmentInfoDao;
 import dao.Sql2oDepartmentInfoDao;
 import dao.Sql2oNewsInfoDao;
 import dao.Sql2oUserInfoDao;
@@ -32,7 +33,7 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         },new HandlebarsTemplateEngine());
 
-        get("/depart/news", (request, response) ->{
+        get("/depart/new", (request, response) ->{
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "departform.hbs");
         },new HandlebarsTemplateEngine());
@@ -44,9 +45,9 @@ public class App {
             String description = request.queryParams("description");
             int nbrEmployees = Integer.parseInt(request.queryParams("nbrEmployees"));
             DepartmentInfo departmentInfo = new DepartmentInfo(departmentName, description, nbrEmployees, id);
-            departmentInfo.getAll(departmentInfo);
+            DepartmentInfoDao.add(departmentInfo);
             model.put("departments", departmentInfo);
-            return new ModelAndView(model, "departform.hbs");
+            return new ModelAndView(model, "alldepartment.hbs");
         },new HandlebarsTemplateEngine());
     }
 }

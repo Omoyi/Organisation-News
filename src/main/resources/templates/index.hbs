@@ -1,8 +1,8 @@
 {{#partial "content"}}
 <!--     I took the styling of this navbar from a project on github -->
 <body>
-    <nav style="padding-bottom: 3%;" class="navbar navbar-expand-lg navbar-light bg-info">
-        <a class="navbar-brand" href="#">News Portals</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a style="padding-bottom: 3%; padding-right: 13%; color: white; font-size: 35px;"class="navbar-brand" href="#">News Portals</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,19 +10,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a style="font-size: 29px; color: white; " class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="/departments" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments</a>
-                    <div style="margin-left: 10%;" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/departments/new">Add Department</a>
+                    <a style="font-size: 29px; color: white; padding-right: 13%;" class="nav-link dropdown-toggle" href="/departments" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments</a>
+                    <div style="margin-left: 31%;" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/depart/new">Add Department</a>
 
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/departments">View Departments</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/news" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a style="font-size: 29px; color: white; padding-right: 13%;" class="nav-link dropdown-toggle" href="/news" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         News
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -31,8 +31,8 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="/user" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
-                    <div style="margin-left: 22%;" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a style="font-size: 29px; color: white;" class="nav-link dropdown-toggle" href="/user" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
+                    <div style="margin-left: 47%;" class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/user/new">Add User</a>
 
                         <div class="dropdown-divider"></div>
@@ -46,6 +46,9 @@
 <style>
     body {
         background-image: url(https://www.zastavki.com/pictures/1920x1200/2008/Computers_Apple_Screen_011603_.jpg);
+    }
+    a {
+       color: white;
     }
 </style>
 {{/partial}}
