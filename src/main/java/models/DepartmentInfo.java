@@ -2,13 +2,13 @@ package models;
 
 public class DepartmentInfo {
 
-    private String departmentName;
+    private String departmentname;
     private String description;
     private int nbrEmployees;
     private int id;
 
-    public DepartmentInfo(String departmentName, String description, int nbrEmployees){
-        this.departmentName = departmentName;
+    public DepartmentInfo(String departmentname, String description, int nbrEmployees){
+        this.departmentname = departmentname;
         this.description = description;
         this.nbrEmployees = nbrEmployees;
     }
@@ -16,10 +16,10 @@ public class DepartmentInfo {
 
 
 
-    public String getDepartmentName() { return departmentName; }
+    public String getDepartmentname() { return departmentname; }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
     }
 
     public String getDescription() { return description; }

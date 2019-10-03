@@ -42,10 +42,10 @@ public class App {
 
         post("/departments", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            String departmentName = request.queryParams("departmentName");
+            String departmentname = request.queryParams("departmentname");
             String description = request.queryParams("description");
             int nbrEmployees = Integer.parseInt(request.queryParams("nbrEmployees"));
-            DepartmentInfo departmentInfo = new DepartmentInfo(departmentName, description, nbrEmployees);
+            DepartmentInfo departmentInfo = new DepartmentInfo(departmentname, description, nbrEmployees);
             departmentInfoDao.add(departmentInfo);
             model.put("department", departmentInfo);
             response.redirect("/departments");
@@ -75,8 +75,9 @@ public class App {
             userInfoDao.add(userInfo);
             model.put("userInfo", userInfo);
             response.redirect("/departments");
-            return new ModelAndView(model, "alldepartment.hbs");
+            return new ModelAndView(model, "alluser.hbs");
         },new HandlebarsTemplateEngine());
 
+        get
     }
 }
