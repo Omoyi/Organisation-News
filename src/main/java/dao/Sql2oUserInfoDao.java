@@ -16,10 +16,11 @@ public class Sql2oUserInfoDao implements UserInfoDao {
 
     @Override
     public void add(UserInfo userInfo) {
-        String query ="INSERT INTO users(name, positioninc,role,departid) VALUES (:name,:positioninc,:role,:departid)";
+        String query ="INSERT INTO userTable(name, post,role) VALUES (:name,:post,:role,)";
         try(Connection connect =sql2o.open()){
             int id= (int) connect.createQuery(query,true)
                     .bind(userInfo)
+                    .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
             userInfo.setId(id);
@@ -36,7 +37,11 @@ public class Sql2oUserInfoDao implements UserInfoDao {
 
     @Override
     public List<UserInfo> all() {
-        return null;
+        try(Connection connect=sql2o.open()){
+            return connect.createQuery("SELECT * FROM userTable")
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(UserInfo.class);
+        }
     }
 
     @Override

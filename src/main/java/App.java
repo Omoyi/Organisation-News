@@ -28,8 +28,6 @@ public class App {
         newsInfoDao = new Sql2oNewsInfoDao(sql2o);
         departmentInfoDao = new Sql2oDepartmentInfoDao(sql2o);
         conn = sql2o.open();
-        System.out.println("hello world");
-
         get("/home", (request, response) ->{
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "index.hbs");
@@ -63,21 +61,24 @@ public class App {
             return new ModelAndView(model, "userform.hbs");
         },new HandlebarsTemplateEngine());
 
-
-
-        post("/users", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            String userName = request.queryParams("name");
-            String post = request.queryParams("post");
-            String role = request.queryParams("role");
-            String department = request.queryParams("deptInfId");
-            UserInfo userInfo = new UserInfo(userName, post, role,department);
-            userInfoDao.add(userInfo);
-            model.put("userInfo", userInfo);
-            response.redirect("/departments");
-            return new ModelAndView(model, "alluser.hbs");
+        get("/users", (request, response) ->{
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("userInfo",userInfoDao.all());
+            return new ModelAndView(model, "userform.hbs");
         },new HandlebarsTemplateEngine());
 
-        get
+        post("/users/", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("name");
+            String post = request.queryParams("post");
+            String role = request.queryParams("role");
+            UserInfo userInfo = new UserInfo(name, post, role);
+            userInfoDao.add(userInfo);
+            System.out.println("role");
+            model.put("userInfo", userInfo);
+            response.redirect("/users");
+            return new ModelAndView(model, "userform.hbs");
+        },new HandlebarsTemplateEngine());
+
     }
 }

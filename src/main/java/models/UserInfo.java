@@ -8,12 +8,10 @@ public class UserInfo {
     private int deptInfId;
     private int id;
 
-    public UserInfo(String post, String role, String name, String department){
+    public UserInfo(String post, String role, String name){
         this.role = role;
         this.post = post;
         this.name = name;
-        this.department = department;
-        this.deptInfId = deptInfId;
     }
 
     public String getName() { return name; }
