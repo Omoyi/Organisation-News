@@ -21,6 +21,10 @@ This is an app on which workers of the same company can post different news, fro
 
 **urakhel7@gmail.com**
 
+## Known bugs
+
+Deployment on heroku is not working
+
 ## Installation tips/ Setup instruction
 
 * Install postgresSQL
