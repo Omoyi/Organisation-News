@@ -34,9 +34,10 @@ This is an app on which workers of the same company can post different news, fro
 
 ## A Little bit about how my project looks like
 
-![Homepage](src/main/resources/)
-![Add animals](src/main/resources)
-  
+![Homepage](src/main/resources/public/imag.png)
+![Add animals](src/main/resources/public/image2.png)
+![Add animals](src/main/resources/public/image1.png)
+![Add animals](src/main/resources/public/image.png)
 ## LICENSE 
 
 MIT License
