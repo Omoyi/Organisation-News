@@ -8,7 +8,7 @@ public class UserInfo {
     private int deptInfId;
     private int id;
 
-    public UserInfo(String post, String role, String name, String department, int departId){
+    public UserInfo(String post, String role, String name, String department){
         this.role = role;
         this.post = post;
         this.name = name;

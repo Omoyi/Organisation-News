@@ -1,5 +1,6 @@
 {{#partial "content"}}
-    <h1>AVAILABLE DEPARTMENTS</h1>
+    <br><br><br><br>
+    <h1>AVAILABLE DEPARTMENTS</h1><br><br><br><br>
     <table class="table">
         <thead>
         <tr>
@@ -10,15 +11,15 @@
         </thead>
         <tbody>
         {{#each department}}
-            <tr class="table-dark">
-                <td>{{name}}</td>
+            <tr class="table-light">
+                <td>{{departmentName}}</td>
                 <td>{{description}}</td>
                 <td>{{nbrEmployees}}</td>
 
 
-                <td><a href="/users/new"><button type="submit" class="btn btn-info">add users</button></a></td>
-                <td><a href="news/delete"><button type="submit" class="btn btn-info">delete</button></a></td>
-                <td><a href="/generalnews"><button type="submit" class="btn btn-info">Add news</button></a></td>
+                <td><a href="/user/new"><button type="submit" class="btn btn-warning">add users</button></a></td>
+                <td><a href="depart/new"><button type="submit" class="btn btn-success">Add department</button></a></td>
+                <td><a href="/generalnews"><button type="submit" class="btn btn-danger">Add news</button></a></td>
             </tr>
         {{/each}}
         </tbody>
@@ -27,17 +28,17 @@
 {{> layout.hbs}}
 
 <style>
-h2{
-color:white;
+h1{
+   text-align: center;
 }
 th{
 <!--color:white;-->
-font-size:20px;
+font-size:30px;
 font-family: 'Playfair Display', serif;
 }
 td{
 <!--color:white;-->
-font-size:20px;
+font-size: 40px;
 font-family: 'Playfair Display', serif;
 }
 </style>

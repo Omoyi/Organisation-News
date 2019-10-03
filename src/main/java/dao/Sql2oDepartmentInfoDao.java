@@ -17,7 +17,7 @@ public class Sql2oDepartmentInfoDao implements DepartmentInfoDao{
 
     @Override
     public void add(DepartmentInfo departmentInfo) {
-        String data="INSERT INTO departTable(departmentName,description,numberOfEmployees) VALUES (:departmentName,:description,:numberOfEmployees)";
+        String data="INSERT INTO departTable(departmentName,description,nbrEmployees) VALUES (:departmentName,:description,:nbrEmployees)";
         try(Connection connect=sql2o.open()){
             int id =(int) connect.createQuery(data,true)
                     .bind(departmentInfo)

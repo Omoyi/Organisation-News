@@ -3,6 +3,7 @@ import dao.Sql2oDepartmentInfoDao;
 import dao.Sql2oNewsInfoDao;
 import dao.Sql2oUserInfoDao;
 import models.DepartmentInfo;
+import models.UserInfo;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
@@ -46,7 +47,8 @@ public class App {
             int nbrEmployees = Integer.parseInt(request.queryParams("nbrEmployees"));
             DepartmentInfo departmentInfo = new DepartmentInfo(departmentName, description, nbrEmployees);
             departmentInfoDao.add(departmentInfo);
-            model.put("departments", departmentInfo);
+            model.put("department", departmentInfo);
+            response.redirect("/departments");
             return new ModelAndView(model, "alldepartment.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -55,6 +57,26 @@ public class App {
             model.put("department",departmentInfoDao.getAll());
             return new ModelAndView(model, "alldepartment.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/user/new", (request, response) ->{
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "userform.hbs");
+        },new HandlebarsTemplateEngine());
+
+
+
+        post("/users", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String userName = request.queryParams("name");
+            String post = request.queryParams("post");
+            String role = request.queryParams("role");
+            String department = request.queryParams("deptInfId");
+            UserInfo userInfo = new UserInfo(userName, post, role,department);
+            userInfoDao.add(userInfo);
+            model.put("userInfo", userInfo);
+            response.redirect("/departments");
+            return new ModelAndView(model, "alldepartment.hbs");
+        },new HandlebarsTemplateEngine());
 
     }
 }
